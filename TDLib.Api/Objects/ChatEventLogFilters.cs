@@ -96,6 +96,13 @@ namespace TdLib
             public bool SettingChanges { get; set; }
 
             /// <summary>
+            /// True, if changes to invite links should be returned
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("invite_link_changes")]
+            public bool InviteLinkChanges { get; set; }
+
+            /// <summary>
             /// True, if voice chat actions should be returned
             /// </summary>
             [JsonConverter(typeof(Converter))]

@@ -41,14 +41,14 @@ namespace TdLib
             public string Scope { get; set; }
 
             /// <summary>
-            /// Service's public_key
+            /// Service's public key
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("public_key")]
             public string PublicKey { get; set; }
 
             /// <summary>
-            /// Authorization form nonce provided by the service
+            /// Unique request identifier provided by the service
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("nonce")]

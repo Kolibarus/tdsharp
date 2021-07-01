@@ -28,11 +28,11 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Identifier of the affected user
+                /// Identifier of the affected group call participant
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
-                [JsonProperty("user_id")]
-                public int UserId { get; set; }
+                [JsonProperty("participant_id")]
+                public MessageSender ParticipantId { get; set; }
 
                 /// <summary>
                 /// New value of is_muted

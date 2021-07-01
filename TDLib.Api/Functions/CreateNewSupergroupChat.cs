@@ -34,7 +34,7 @@ namespace TdLib
             public string Title { get; set; }
 
             /// <summary>
-            /// True, if a channel chat should be created
+            /// True, if a channel chat needs to be created
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_channel")]
@@ -53,6 +53,13 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("location")]
             public ChatLocation Location { get; set; }
+
+            /// <summary>
+            /// True, if the supergroup is created for importing messages using importMessage
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("for_import")]
+            public bool ForImport { get; set; }
         }
 
         /// <summary>
@@ -60,11 +67,12 @@ namespace TdLib
         /// </summary>
         public static Task<Chat> CreateNewSupergroupChatAsync(
             this Client client, string title = default, bool isChannel = default, string description = default,
-            ChatLocation location = default)
+            ChatLocation location = default, bool forImport = default)
         {
             return client.ExecuteAsync(new CreateNewSupergroupChat
             {
-                Title = title, IsChannel = isChannel, Description = description, Location = location
+                Title = title, IsChannel = isChannel, Description = description, Location = location,
+                ForImport = forImport
             });
         }
     }

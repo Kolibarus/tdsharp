@@ -34,7 +34,7 @@ namespace TdLib
             public long ChatId { get; set; }
 
             /// <summary>
-            /// Parameters from "tg://statsrefresh?params=******" link
+            /// Parameters for the request
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("parameters")]

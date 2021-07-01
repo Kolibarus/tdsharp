@@ -11,7 +11,7 @@ namespace TdLib
         public partial class ChatMemberStatus : Object
         {
             /// <summary>
-            /// The user is a member of a chat and has some additional privileges. In basic groups, administrators can edit and delete messages sent by others, add new members, ban unprivileged members, and manage voice chats. In supergroups and channels, there are more detailed options for administrator privileges
+            /// The user is a member of the chat and has some additional privileges. In basic groups, administrators can edit and delete messages sent by others, add new members, ban unprivileged members, and manage voice chats. In supergroups and channels, there are more detailed options for administrator privileges
             /// </summary>
             public class ChatMemberStatusAdministrator : ChatMemberStatus
             {
@@ -40,6 +40,13 @@ namespace TdLib
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("can_be_edited")]
                 public bool CanBeEdited { get; set; }
+
+                /// <summary>
+                /// True, if the administrator can get chat event log, get chat statistics, get message statistics in channels, get channel members, see anonymous administrators in supergroups and ignore slow mode. Implied by any other privilege; applicable to supergroups and channels only
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("can_manage_chat")]
+                public bool CanManageChat { get; set; }
 
                 /// <summary>
                 /// True, if the administrator can change the chat title, photo, and other settings
@@ -84,7 +91,7 @@ namespace TdLib
                 public bool CanRestrictMembers { get; set; }
 
                 /// <summary>
-                /// True, if the administrator can pin messages; applicable to groups only
+                /// True, if the administrator can pin messages; applicable to basic groups and supergroups only
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("can_pin_messages")]
@@ -98,7 +105,7 @@ namespace TdLib
                 public bool CanPromoteMembers { get; set; }
 
                 /// <summary>
-                /// True, if the administrator can manage voice chats; applicable to groups only
+                /// True, if the administrator can manage voice chats
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("can_manage_voice_chats")]

@@ -145,11 +145,18 @@ namespace TdLib
             public ChatLocation Location { get; set; }
 
             /// <summary>
-            /// Invite link for this chat
+            /// Primary invite link for this chat; may be null. For chat administrators with can_invite_users right only
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("invite_link")]
-            public string InviteLink { get; set; }
+            public ChatInviteLink InviteLink { get; set; }
+
+            /// <summary>
+            /// List of commands of bots in the group
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("bot_commands")]
+            public BotCommands[] BotCommands { get; set; }
 
             /// <summary>
             /// Identifier of the basic group from which supergroup was upgraded; 0 if none

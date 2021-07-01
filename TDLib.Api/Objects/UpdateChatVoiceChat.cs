@@ -35,18 +35,11 @@ namespace TdLib
                 public long ChatId { get; set; }
 
                 /// <summary>
-                /// New value of voice_chat_group_call_id
+                /// New value of voice_chat
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
-                [JsonProperty("voice_chat_group_call_id")]
-                public int VoiceChatGroupCallId { get; set; }
-
-                /// <summary>
-                /// New value of is_voice_chat_empty
-                /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("is_voice_chat_empty")]
-                public bool IsVoiceChatEmpty { get; set; }
+                [JsonProperty("voice_chat")]
+                public VoiceChat VoiceChat { get; set; }
             }
         }
     }

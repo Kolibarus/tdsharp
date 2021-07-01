@@ -9,7 +9,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Contains information about a tg:// deep link
+        /// Contains information about a tg: deep link
         /// </summary>
         public partial class DeepLinkInfo : Object
         {

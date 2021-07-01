@@ -33,7 +33,7 @@ namespace TdLib
             public long Id { get; set; }
 
             /// <summary>
-            /// Poll question, 1-300 characters
+            /// Poll question; 1-300 characters
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("question")]

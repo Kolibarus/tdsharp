@@ -96,6 +96,13 @@ namespace TdLib
             public bool IsChannel { get; set; }
 
             /// <summary>
+            /// True, if the supergroup is a broadcast group, i.e. only administrators can send messages and there is no limit on number of members
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("is_broadcast_group")]
+            public bool IsBroadcastGroup { get; set; }
+
+            /// <summary>
             /// True, if the supergroup or channel is verified
             /// </summary>
             [JsonConverter(typeof(Converter))]
@@ -110,11 +117,18 @@ namespace TdLib
             public string RestrictionReason { get; set; }
 
             /// <summary>
-            /// True, if many users reported this supergroup as a scam
+            /// True, if many users reported this supergroup or channel as a scam
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_scam")]
             public bool IsScam { get; set; }
+
+            /// <summary>
+            /// True, if many users reported this supergroup or channel as a fake account
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("is_fake")]
+            public bool IsFake { get; set; }
         }
     }
 }

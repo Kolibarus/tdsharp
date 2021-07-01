@@ -26,6 +26,13 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
+            /// The payment form identifier
+            /// </summary>
+            [JsonConverter(typeof(Converter.Int64))]
+            [JsonProperty("id")]
+            public long Id { get; set; }
+
+            /// <summary>
             /// Full information of the invoice
             /// </summary>
             [JsonConverter(typeof(Converter))]
@@ -38,6 +45,20 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("url")]
             public string Url { get; set; }
+
+            /// <summary>
+            /// User identifier of the seller bot
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("seller_bot_user_id")]
+            public int SellerBotUserId { get; set; }
+
+            /// <summary>
+            /// User identifier of the payment provider bot
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("payments_provider_user_id")]
+            public int PaymentsProviderUserId { get; set; }
 
             /// <summary>
             /// Contains information about the payment provider, if available, to support it natively without the need for opening the URL; may be null

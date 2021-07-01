@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Creates a voice chat (a group call bound to a chat). Available only for basic groups and supergroups; requires can_manage_voice_chats rights
+        /// Creates a voice chat (a group call bound to a chat). Available only for basic groups, supergroups and channels; requires can_manage_voice_chats rights
         /// </summary>
         public class CreateVoiceChat : Function<GroupCallId>
         {
@@ -27,22 +27,36 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Chat identifier
+            /// Chat identifier, in which the voice chat will be created
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("chat_id")]
             public long ChatId { get; set; }
+
+            /// <summary>
+            /// Group call title; if empty, chat title will be used
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("title")]
+            public string Title { get; set; }
+
+            /// <summary>
+            /// Point in time (Unix timestamp) when the group call is supposed to be started by an administrator; 0 to start the voice chat immediately. The date must be at least 10 seconds and at most 8 days in the future
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("start_date")]
+            public int StartDate { get; set; }
         }
 
         /// <summary>
-        /// Creates a voice chat (a group call bound to a chat). Available only for basic groups and supergroups; requires can_manage_voice_chats rights
+        /// Creates a voice chat (a group call bound to a chat). Available only for basic groups, supergroups and channels; requires can_manage_voice_chats rights
         /// </summary>
         public static Task<GroupCallId> CreateVoiceChatAsync(
-            this Client client, long chatId = default)
+            this Client client, long chatId = default, string title = default, int startDate = default)
         {
             return client.ExecuteAsync(new CreateVoiceChat
             {
-                ChatId = chatId
+                ChatId = chatId, Title = title, StartDate = startDate
             });
         }
     }

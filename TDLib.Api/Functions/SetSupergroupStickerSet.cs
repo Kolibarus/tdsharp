@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Changes the sticker set of a supergroup; requires can_change_info rights
+        /// Changes the sticker set of a supergroup; requires can_change_info administrator right
         /// </summary>
         public class SetSupergroupStickerSet : Function<Ok>
         {
@@ -42,7 +42,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Changes the sticker set of a supergroup; requires can_change_info rights
+        /// Changes the sticker set of a supergroup; requires can_change_info administrator right
         /// </summary>
         public static Task<Ok> SetSupergroupStickerSetAsync(
             this Client client, int supergroupId = default, long stickerSetId = default)

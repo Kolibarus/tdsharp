@@ -56,7 +56,7 @@ namespace TdLib
                 public string Currency { get; set; }
 
                 /// <summary>
-                /// Product total price in the minimal quantity of the currency
+                /// Product total price in the smallest units of the currency
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("total_amount")]

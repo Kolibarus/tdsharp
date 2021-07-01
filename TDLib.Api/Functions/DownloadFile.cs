@@ -48,7 +48,7 @@ namespace TdLib
             public int Offset { get; set; }
 
             /// <summary>
-            /// Number of bytes which should be downloaded starting from the "offset" position before the download will be automatically cancelled; use 0 to download without a limit
+            /// Number of bytes which should be downloaded starting from the "offset" position before the download will be automatically canceled; use 0 to download without a limit
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("limit")]

@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Adds a new member to a chat. Members can't be added to private or secret chats. Members will not be added until the chat state has been synchronized with the server
+        /// Adds a new member to a chat. Members can't be added to private or secret chats
         /// </summary>
         public class AddChatMember : Function<Ok>
         {
@@ -49,7 +49,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Adds a new member to a chat. Members can't be added to private or secret chats. Members will not be added until the chat state has been synchronized with the server
+        /// Adds a new member to a chat. Members can't be added to private or secret chats
         /// </summary>
         public static Task<Ok> AddChatMemberAsync(
             this Client client, long chatId = default, int userId = default, int forwardLimit = default)

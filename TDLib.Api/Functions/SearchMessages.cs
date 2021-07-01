@@ -27,7 +27,7 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Chat list in which to search messages; pass null to search in all chats regardless of their chat list
+            /// Chat list in which to search messages; pass null to search in all chats regardless of their chat list. Only Main and Archive chat lists are supported
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("chat_list")]

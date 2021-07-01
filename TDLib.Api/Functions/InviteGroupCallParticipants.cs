@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Invites users to a group call. Sends a service message of type messageInviteToGroupCall for voice chats
+        /// Invites users to an active group call. Sends a service message of type messageInviteToGroupCall for voice chats
         /// </summary>
         public class InviteGroupCallParticipants : Function<Ok>
         {
@@ -42,7 +42,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Invites users to a group call. Sends a service message of type messageInviteToGroupCall for voice chats
+        /// Invites users to an active group call. Sends a service message of type messageInviteToGroupCall for voice chats
         /// </summary>
         public static Task<Ok> InviteGroupCallParticipantsAsync(
             this Client client, int groupCallId = default, int[] userIds = default)

@@ -27,14 +27,14 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// The input background to use, null for filled backgrounds
+            /// The input background to use. Pass null to create a new filled backgrounds. Pass null to remove the current background
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("background")]
             public InputBackground Background { get; set; }
 
             /// <summary>
-            /// Background type; null for default background. The method will return error 404 if type is null
+            /// Background type. Pass null to use default type of the remote background. Pass null to remove the current background
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("type")]

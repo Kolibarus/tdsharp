@@ -35,7 +35,7 @@ namespace TdLib
                 public BackgroundFill Fill { get; set; }
 
                 /// <summary>
-                /// Intensity of the pattern when it is shown above the filled background, 0-100
+                /// Intensity of the pattern when it is shown above the filled background; -100-100. If negative, the pattern color and the filled background colors needs to be inverted
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("intensity")]
