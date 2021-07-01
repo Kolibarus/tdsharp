@@ -60,7 +60,7 @@ let generateField (def: Parser.TlDef) (field: Parser.TlField) (annotations: Pars
             .Replace("$TL_FIELD_NAME", tlFieldName)
             .Replace("$FIELD_TYPE", fieldType)
             .Replace("$FIELD_NAME", fieldName))
-        |> Seq.fold (fun acc line -> acc + line + "\n") ""
+        |> Seq.fold (fun acc line -> acc + line + "\r\n") ""
     
 let generateType (def: Parser.TlDef) (annotations: Parser.TlAnnotation list) =
     let (objectTypeName, fields, baseTypeName) =
@@ -72,7 +72,7 @@ let generateType (def: Parser.TlDef) (annotations: Parser.TlAnnotation list) =
     let objectFields =
         fields
         |> List.map (fun field -> generateField def field annotations)
-        |> List.fold (fun acc content -> acc + content + "\n") ""
+        |> List.fold (fun acc content -> acc + content + "\r\n") ""
     
     let description =
         match getTypeAnnotationText annotations with
@@ -86,7 +86,7 @@ let generateType (def: Parser.TlDef) (annotations: Parser.TlAnnotation list) =
             .Replace("$TL_TYPE_NAME", tlTypeName)
             .Replace("$BASE_TYPE_NAME", baseTypeName)
             .Replace("$TYPE_FIELDS", objectFields))
-        |> Seq.fold (fun acc line -> acc + line + "\n") ""
+        |> Seq.fold (fun acc line -> acc + line + "\r\n") ""
         
 let generateFunc (def: Parser.TlDef) (annotations: Parser.TlAnnotation list) =
     let (funcTypeName, fields, returnTypeName) =
@@ -102,7 +102,7 @@ let generateFunc (def: Parser.TlDef) (annotations: Parser.TlAnnotation list) =
     let funcFields =
         fields
         |> List.map (fun field -> generateField def field annotations)
-        |> List.fold (fun acc content -> acc + content + "\n") ""
+        |> List.fold (fun acc content -> acc + content + "\r\n") ""
         
     let funcParams =
         fields
@@ -127,7 +127,7 @@ let generateFunc (def: Parser.TlDef) (annotations: Parser.TlAnnotation list) =
             .Replace("$FUNC_FIELDS", funcFields)
             .Replace("$FUNC_PARAMS", funcParams)
             .Replace("$FUNC_ARGS", funcArgs))
-        |> Seq.fold (fun acc line -> acc + line + "\n") ""
+        |> Seq.fold (fun acc line -> acc + line + "\r\n") ""
 
 let generateAllTypes() = seq {
     let lines = Utils.readResource "Types.tl"
