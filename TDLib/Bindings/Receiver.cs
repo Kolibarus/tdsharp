@@ -3,9 +3,8 @@ using System.Collections.Concurrent;
 using System.Threading;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
-using TdLib;
 
-namespace TDLib.Bindings
+namespace TdLib.Bindings
 {
     internal class Receiver : IDisposable
     {
